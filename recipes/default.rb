@@ -28,7 +28,7 @@ end
 execute "setup.exe" do
   cwd node['cygwin']['download_path']
   command "setup.exe -q -O -R #{node['cygwin']['home']} -s #{node['cygwin']['site']} #{proxy_command}"
-  not_if { File.exists?("C:/cygwin/etc/passwd") }
+  not_if { File.exists?("C:/cygwin/etc/fstab") }
 end
 
 windows_path "#{node['cygwin']['home']}/bin".gsub( /\//, "\\") do
